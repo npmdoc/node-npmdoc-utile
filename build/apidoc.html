@@ -1,0 +1,1910 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/flatiron/utile"
+
+    >utile (v0.3.0)</a>
+</h1>
+<h4>A drop-in replacement for `util` with some additional advantageous functions</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.utile">module utile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile._errnoException">
+            function <span class="apidocSignatureSpan">utile.</span>_errnoException
+            <span class="apidocSignatureSpan">(err, syscall, original)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile._exceptionWithHostPort">
+            function <span class="apidocSignatureSpan">utile.</span>_exceptionWithHostPort
+            <span class="apidocSignatureSpan">(err, syscall, address, port, additional)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile._extend">
+            function <span class="apidocSignatureSpan">utile.</span>_extend
+            <span class="apidocSignatureSpan">(target, source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.camelToUnderscore">
+            function <span class="apidocSignatureSpan">utile.</span>camelToUnderscore
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.capitalize">
+            function <span class="apidocSignatureSpan">utile.</span>capitalize
+            <span class="apidocSignatureSpan">(lower_case_and_underscored_word, first_letter_in_uppercase)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.clone">
+            function <span class="apidocSignatureSpan">utile.</span>clone
+            <span class="apidocSignatureSpan">(object, filter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.createPath">
+            function <span class="apidocSignatureSpan">utile.</span>createPath
+            <span class="apidocSignatureSpan">(obj, path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.debug">
+            function <span class="apidocSignatureSpan">utile.</span>debug
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.debuglog">
+            function <span class="apidocSignatureSpan">utile.</span>debuglog
+            <span class="apidocSignatureSpan">(set)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.deprecate">
+            function <span class="apidocSignatureSpan">utile.</span>deprecate
+            <span class="apidocSignatureSpan">(fn, msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.each">
+            function <span class="apidocSignatureSpan">utile.</span>each
+            <span class="apidocSignatureSpan">(obj, iterator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.error">
+            function <span class="apidocSignatureSpan">utile.</span>error
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.escapeRegExp">
+            function <span class="apidocSignatureSpan">utile.</span>escapeRegExp
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.filter">
+            function <span class="apidocSignatureSpan">utile.</span>filter
+            <span class="apidocSignatureSpan">(obj, pred)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.find">
+            function <span class="apidocSignatureSpan">utile.</span>find
+            <span class="apidocSignatureSpan">(obj, pred)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.format">
+            function <span class="apidocSignatureSpan">utile.</span>format
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.inherits">
+            function <span class="apidocSignatureSpan">utile.</span>inherits
+            <span class="apidocSignatureSpan">(ctor, superCtor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.inspect">
+            function <span class="apidocSignatureSpan">utile.</span>inspect
+            <span class="apidocSignatureSpan">(obj, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isArray">
+            function <span class="apidocSignatureSpan">utile.</span>isArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isBoolean">
+            function <span class="apidocSignatureSpan">utile.</span>isBoolean
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isBuffer">
+            function <span class="apidocSignatureSpan">utile.</span>isBuffer
+            <span class="apidocSignatureSpan">(b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isDate">
+            function <span class="apidocSignatureSpan">utile.</span>isDate
+            <span class="apidocSignatureSpan">(d)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isError">
+            function <span class="apidocSignatureSpan">utile.</span>isError
+            <span class="apidocSignatureSpan">(e)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isFunction">
+            function <span class="apidocSignatureSpan">utile.</span>isFunction
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isNull">
+            function <span class="apidocSignatureSpan">utile.</span>isNull
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isNullOrUndefined">
+            function <span class="apidocSignatureSpan">utile.</span>isNullOrUndefined
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isNumber">
+            function <span class="apidocSignatureSpan">utile.</span>isNumber
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isObject">
+            function <span class="apidocSignatureSpan">utile.</span>isObject
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isPrimitive">
+            function <span class="apidocSignatureSpan">utile.</span>isPrimitive
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isRegExp">
+            function <span class="apidocSignatureSpan">utile.</span>isRegExp
+            <span class="apidocSignatureSpan">(re)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isString">
+            function <span class="apidocSignatureSpan">utile.</span>isString
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isSymbol">
+            function <span class="apidocSignatureSpan">utile.</span>isSymbol
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.isUndefined">
+            function <span class="apidocSignatureSpan">utile.</span>isUndefined
+            <span class="apidocSignatureSpan">(arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.log">
+            function <span class="apidocSignatureSpan">utile.</span>log
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.mixin">
+            function <span class="apidocSignatureSpan">utile.</span>mixin
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.pad">
+            function <span class="apidocSignatureSpan">utile.</span>pad
+            <span class="apidocSignatureSpan">(str, len, chr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.path">
+            function <span class="apidocSignatureSpan">utile.</span>path
+            <span class="apidocSignatureSpan">(obj, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.print">
+            function <span class="apidocSignatureSpan">utile.</span>print
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.puts">
+            function <span class="apidocSignatureSpan">utile.</span>puts
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.randomString">
+            function <span class="apidocSignatureSpan">utile.</span>randomString
+            <span class="apidocSignatureSpan">(length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.rargs">
+            function <span class="apidocSignatureSpan">utile.</span>rargs
+            <span class="apidocSignatureSpan">(_args, slice)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.requireDir">
+            function <span class="apidocSignatureSpan">utile.</span>requireDir
+            <span class="apidocSignatureSpan">(directory)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.requireDirLazy">
+            function <span class="apidocSignatureSpan">utile.</span>requireDirLazy
+            <span class="apidocSignatureSpan">(directory)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.underscoreToCamel">
+            function <span class="apidocSignatureSpan">utile.</span>underscoreToCamel
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">utile.</span>base64</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">utile.</span>file</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.utile.base64">module utile.base64</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.base64.decode">
+            function <span class="apidocSignatureSpan">utile.base64.</span>decode
+            <span class="apidocSignatureSpan">(encoded)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.base64.encode">
+            function <span class="apidocSignatureSpan">utile.base64.</span>encode
+            <span class="apidocSignatureSpan">(unencoded)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.utile.file">module utile.file</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.file.readJSON">
+            function <span class="apidocSignatureSpan">utile.file.</span>readJSON
+            <span class="apidocSignatureSpan">(file, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.file.readJSONSync">
+            function <span class="apidocSignatureSpan">utile.file.</span>readJSONSync
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.file.readJson">
+            function <span class="apidocSignatureSpan">utile.file.</span>readJson
+            <span class="apidocSignatureSpan">(file, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utile.file.readJsonSync">
+            function <span class="apidocSignatureSpan">utile.file.</span>readJsonSync
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.utile" id="apidoc.module.utile">module utile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.utile._errnoException" id="apidoc.element.utile._errnoException">
+        function <span class="apidocSignatureSpan">utile.</span>_errnoException
+        <span class="apidocSignatureSpan">(err, syscall, original)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_errnoException = function (err, syscall, original) {
+  var errname = uv.errname(err);
+  var message = `${syscall} ${errname}`;
+  if (original)
+    message += &#x27; &#x27; + original;
+  var e = new Error(message);
+  e.code = errname;
+  e.errno = errname;
+  e.syscall = syscall;
+  return e;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile._exceptionWithHostPort" id="apidoc.element.utile._exceptionWithHostPort">
+        function <span class="apidocSignatureSpan">utile.</span>_exceptionWithHostPort
+        <span class="apidocSignatureSpan">(err, syscall, address, port, additional)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_exceptionWithHostPort = function (err, syscall, address, port, additional) {
+  var details;
+  if (port &#x26;&#x26; port &#x3e; 0) {
+    details = `${address}:${port}`;
+  } else {
+    details = address;
+  }
+
+  if (additional) {
+    details += ` - Local (${additional})`;
+  }
+  var ex = exports._errnoException(err, syscall, details);
+  ex.address = address;
+  if (port) {
+    ex.port = port;
+  }
+  return ex;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile._extend" id="apidoc.element.utile._extend">
+        function <span class="apidocSignatureSpan">utile.</span>_extend
+        <span class="apidocSignatureSpan">(target, source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_extend = function (target, source) {
+  // Don&#x27;t do anything if source isn&#x27;t an object
+  if (source === null || typeof source !== &#x27;object&#x27;) return target;
+
+  var keys = Object.keys(source);
+  var i = keys.length;
+  while (i--) {
+    target[keys[i]] = source[keys[i]];
+  }
+  return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.camelToUnderscore" id="apidoc.element.utile.camelToUnderscore">
+        function <span class="apidocSignatureSpan">utile.</span>camelToUnderscore
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">camelToUnderscore = function (obj) {
+  if (typeof obj !== &#x27;object&#x27; || obj === null) {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    obj.forEach(utile.camelToUnderscore);
+    return obj;
+  }
+
+  Object.keys(obj).forEach(function (key) {
+    var k = utile.inflect.underscore(key);
+    if (k !== key) {
+      obj[k] = obj[key];
+      delete obj[key];
+      key = k;
+    }
+    utile.camelToUnderscore(obj[key]);
+  });
+
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.capitalize" id="apidoc.element.utile.capitalize">
+        function <span class="apidocSignatureSpan">utile.</span>capitalize
+        <span class="apidocSignatureSpan">(lower_case_and_underscored_word, first_letter_in_uppercase)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">capitalize = function (lower_case_and_underscored_word, first_letter_in_uppercase) {
+  var result;
+  if (first_letter_in_uppercase == null) first_letter_in_uppercase = true;
+  result = util.string.gsub(lower_case_and_underscored_word, /\/(.?)/, function($) {
+    return &#x22;.&#x22; + (util.string.upcase($[1]));
+  });
+  result = util.string.gsub(result, /(?:_)(.)/, function($) {
+    return util.string.upcase($[1]);
+  });
+  if (first_letter_in_uppercase) {
+    return util.string.upcase(result);
+  } else {
+    return util.string.downcase(result);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Methods
+The `utile` modules exposes some simple utility methods:
+
+* `.each(obj, iterator)`: Iterate over the keys of an object.
+* `.mixin(target [source0, source1, ...])`: Copies enumerable properties from `source0 ... sourceN` onto `target` and returns the
+ resulting object.
+* `.clone(obj)`: Shallow clones the specified object.
+* `.<span class="apidocCodeKeywordSpan">capitalize</span>(str)`: Capitalizes the specified `str`.
+* `.randomString(length)`: randomString returns a pseudo-random ASCII string (subset) the return value is a string of length ⌈bits
+/6⌉ of characters from the base64 alphabet.
+* `.filter(obj, test)`: return an object with the properties that `test` returns true on.
+* `.args(arguments)`: Converts function arguments into actual array with special `callback`, `cb`, `array`, and `last` properties
+. Also supports *optional* argument contracts. See [the example](https://github.com/flatiron/utile/blob/master/examples/utile-args
+.js) for more details.
+* `.requireDir(directory)`: Requires all files and directories from `directory`, returning an object with keys being filenames (
+without trailing `.js`) and respective values being return values of `require(filename)`.
+* `.requireDirLazy(directory)`: Lazily requires all files and directories from `directory`, returning an object with keys being
+filenames (without trailing `.js`) and respective values (getters) being return values of `require(filename)`.
+* `.format([string] text, [array] formats, [array] replacements)`: Replace `formats` in `text` with `replacements`. This will fall
+ back to the original `util.format` command if it is called improperly.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.clone" id="apidoc.element.utile.clone">
+        function <span class="apidocSignatureSpan">utile.</span>clone
+        <span class="apidocSignatureSpan">(object, filter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function (object, filter) {
+  return Object.keys(object).reduce(filter ? function (obj, k) {
+    if (filter(k)) obj[k] = object[k];
+    return obj;
+  } : function (obj, k) {
+    obj[k] = object[k];
+    return obj;
+  }, {});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+As you can see all of the original methods from `util` are there, but there are several new methods specific to `utile`. A note
+about implementation: _no node.js native modules are modified by utile, it simply copies those methods._
+
+## Methods
+The `utile` modules exposes some simple utility methods:
+
+* `.each(obj, iterator)`: Iterate over the keys of an object.
+* `.mixin(target [source0, source1, ...])`: Copies enumerable properties from `source0 ... sourceN` onto `target` and returns the
+ resulting object.
+* `.<span class="apidocCodeKeywordSpan">clone</span>(obj)`: Shallow clones the specified object.
+* `.capitalize(str)`: Capitalizes the specified `str`.
+* `.randomString(length)`: randomString returns a pseudo-random ASCII string (subset) the return value is a string of length ⌈bits
+/6⌉ of characters from the base64 alphabet.
+* `.filter(obj, test)`: return an object with the properties that `test` returns true on.
+* `.args(arguments)`: Converts function arguments into actual array with special `callback`, `cb`, `array`, and `last` properties
+. Also supports *optional* argument contracts. See [the example](https://github.com/flatiron/utile/blob/master/examples/utile-args
+.js) for more details.
+* `.requireDir(directory)`: Requires all files and directories from `directory`, returning an object with keys being filenames (
+without trailing `.js`) and respective values being return values of `require(filename)`.
+* `.requireDirLazy(directory)`: Lazily requires all files and directories from `directory`, returning an object with keys being
+filenames (without trailing `.js`) and respective values (getters) being return values of `require(filename)`.
+* `.format([string] text, [array] formats, [array] replacements)`: Replace `formats` in `text` with `replacements`. This will fall
+ back to the original `util.format` command if it is called improperly.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.createPath" id="apidoc.element.utile.createPath">
+        function <span class="apidocSignatureSpan">utile.</span>createPath
+        <span class="apidocSignatureSpan">(obj, path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createPath = function (obj, path, value) {
+  var key, i;
+
+  for (i in path) {
+    key = path[i];
+    if (!obj[key]) {
+      obj[key] = ((+i + 1 === path.length) ? value : {});
+    }
+
+    obj = obj[key];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.debug" id="apidoc.element.utile.debug">
+        function <span class="apidocSignatureSpan">utile.</span>debug
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deprecated() {
+  warned = exports.printDeprecationMessage(msg, warned, deprecated);
+  if (new.target) {
+    return Reflect.construct(fn, arguments, new.target);
+  }
+  return fn.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.debuglog" id="apidoc.element.utile.debuglog">
+        function <span class="apidocSignatureSpan">utile.</span>debuglog
+        <span class="apidocSignatureSpan">(set)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">debuglog = function (set) {
+  if (debugEnviron === undefined)
+    debugEnviron = process.env.NODE_DEBUG || &#x27;&#x27;;
+  set = set.toUpperCase();
+  if (!debugs[set]) {
+    if (new RegExp(`\\b${set}\\b`, &#x27;i&#x27;).test(debugEnviron)) {
+      var pid = process.pid;
+      debugs[set] = function() {
+        var msg = exports.format.apply(exports, arguments);
+        console.error(&#x27;%s %d: %s&#x27;, set, pid, msg);
+      };
+    } else {
+      debugs[set] = function() {};
+    }
+  }
+  return debugs[set];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.deprecate" id="apidoc.element.utile.deprecate">
+        function <span class="apidocSignatureSpan">utile.</span>deprecate
+        <span class="apidocSignatureSpan">(fn, msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deprecate = function (fn, msg) {
+  // Allow for deprecating things in the process of starting up.
+  if (global.process === undefined) {
+    return function() {
+      return exports._deprecate(fn, msg).apply(this, arguments);
+    };
+  }
+
+  if (process.noDeprecation === true) {
+    return fn;
+  }
+
+  var warned = false;
+  function deprecated() {
+    warned = exports.printDeprecationMessage(msg, warned, deprecated);
+    if (new.target) {
+      return Reflect.construct(fn, arguments, new.target);
+    }
+    return fn.apply(this, arguments);
+  }
+
+  // The wrapper will keep the same prototype as fn to maintain prototype chain
+  Object.setPrototypeOf(deprecated, fn);
+  if (fn.prototype) {
+    // Setting this (rather than using Object.setPrototype, as above) ensures
+    // that calling the unwrapped constructor gives an instanceof the wrapped
+    // constructor.
+    deprecated.prototype = fn.prototype;
+  }
+
+  return deprecated;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.each" id="apidoc.element.utile.each">
+        function <span class="apidocSignatureSpan">utile.</span>each
+        <span class="apidocSignatureSpan">(obj, iterator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">each = function (obj, iterator) {
+  Object.keys(obj).forEach(function (key) {
+    iterator(obj[key], key, obj);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+As you can see all of the original methods from `util` are there, but there are several new methods specific to `utile`. A note
+about implementation: _no node.js native modules are modified by utile, it simply copies those methods._
+
+## Methods
+The `utile` modules exposes some simple utility methods:
+
+* `.<span class="apidocCodeKeywordSpan">each</span>(obj, iterator)`: Iterate over the keys of an object.
+* `.mixin(target [source0, source1, ...])`: Copies enumerable properties from `source0 ... sourceN` onto `target` and returns the
+ resulting object.
+* `.clone(obj)`: Shallow clones the specified object.
+* `.capitalize(str)`: Capitalizes the specified `str`.
+* `.randomString(length)`: randomString returns a pseudo-random ASCII string (subset) the return value is a string of length ⌈bits
+/6⌉ of characters from the base64 alphabet.
+* `.filter(obj, test)`: return an object with the properties that `test` returns true on.
+* `.args(arguments)`: Converts function arguments into actual array with special `callback`, `cb`, `array`, and `last` properties
+. Also supports *optional* argument contracts. See [the example](https://github.com/flatiron/utile/blob/master/examples/utile-args
+.js) for more details.
+* `.requireDir(directory)`: Requires all files and directories from `directory`, returning an object with keys being filenames (
+without trailing `.js`) and respective values being return values of `require(filename)`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.error" id="apidoc.element.utile.error">
+        function <span class="apidocSignatureSpan">utile.</span>error
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deprecated() {
+  warned = exports.printDeprecationMessage(msg, warned, deprecated);
+  if (new.target) {
+    return Reflect.construct(fn, arguments, new.target);
+  }
+  return fn.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.escapeRegExp" id="apidoc.element.utile.escapeRegExp">
+        function <span class="apidocSignatureSpan">utile.</span>escapeRegExp
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escapeRegExp = function (str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, &#x22;\\$&#x26;&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.filter" id="apidoc.element.utile.filter">
+        function <span class="apidocSignatureSpan">utile.</span>filter
+        <span class="apidocSignatureSpan">(obj, pred)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter = function (obj, pred) {
+  var copy;
+  if (Array.isArray(obj)) {
+    copy = [];
+    utile.each(obj, function (val, key) {
+      if (pred(val, key, obj)) {
+        copy.push(val);
+      }
+    });
+  }
+  else {
+    copy = {};
+    utile.each(obj, function (val, key) {
+      if (pred(val, key, obj)) {
+        copy[key] = val;
+      }
+    });
+  }
+  return copy;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+The `utile` modules exposes some simple utility methods:
+
+* `.each(obj, iterator)`: Iterate over the keys of an object.
+* `.mixin(target [source0, source1, ...])`: Copies enumerable properties from `source0 ... sourceN` onto `target` and returns the
+ resulting object.
+* `.clone(obj)`: Shallow clones the specified object.
+* `.capitalize(str)`: Capitalizes the specified `str`.
+* `.randomString(length)`: randomString returns a pseudo-random ASCII string (subset) the return value is a string of length ⌈bits
+/6⌉ of characters from the base64 alphabet.
+* `.<span class="apidocCodeKeywordSpan">filter</span>(obj, test)`: return an object with the properties that `test` returns true
+ on.
+* `.args(arguments)`: Converts function arguments into actual array with special `callback`, `cb`, `array`, and `last` properties
+. Also supports *optional* argument contracts. See [the example](https://github.com/flatiron/utile/blob/master/examples/utile-args
+.js) for more details.
+* `.requireDir(directory)`: Requires all files and directories from `directory`, returning an object with keys being filenames (
+without trailing `.js`) and respective values being return values of `require(filename)`.
+* `.requireDirLazy(directory)`: Lazily requires all files and directories from `directory`, returning an object with keys being
+filenames (without trailing `.js`) and respective values (getters) being return values of `require(filename)`.
+* `.format([string] text, [array] formats, [array] replacements)`: Replace `formats` in `text` with `replacements`. This will fall
+ back to the original `util.format` command if it is called improperly.
+
+## Packaged Dependencies
+In addition to the methods that are built-in, utile includes a number of commonly used dependencies to reduce the number of includes
+ in your package.json. These modules _are not eagerly loaded to be respectful of startup time,_ but instead are lazy-loaded getters
+ on the `utile` object
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.find" id="apidoc.element.utile.find">
+        function <span class="apidocSignatureSpan">utile.</span>find
+        <span class="apidocSignatureSpan">(obj, pred)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (obj, pred) {
+  var value, key;
+
+  for (key in obj) {
+    value = obj[key];
+    if (pred(value, key)) {
+      return value;
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.format" id="apidoc.element.utile.format">
+        function <span class="apidocSignatureSpan">utile.</span>format
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">format = function (str) {
+  var formats = [].slice.call(arguments, 1, 3);
+
+  if (!(formats[0] instanceof Array &#x26;&#x26; formats[1] instanceof Array) || arguments.length &#x3e; 3)
+    return util.format.apply(null, arguments);
+
+  var replacements = formats.pop(),
+      formats = formats.shift();
+
+  formats.forEach(function(format, id) {
+    str = str.replace(new RegExp(format), replacements[id]);
+  });
+
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `.clone(obj)`: Shallow clones the specified object.
+* `.capitalize(str)`: Capitalizes the specified `str`.
+* `.randomString(length)`: randomString returns a pseudo-random ASCII string (subset) the return value is a string of length ⌈bits
+/6⌉ of characters from the base64 alphabet.
+* `.filter(obj, test)`: return an object with the properties that `test` returns true on.
+* `.args(arguments)`: Converts function arguments into actual array with special `callback`, `cb`, `array`, and `last` properties
+. Also supports *optional* argument contracts. See [the example](https://github.com/flatiron/utile/blob/master/examples/utile-args
+.js) for more details.
+* `.requireDir(directory)`: Requires all files and directories from `directory`, returning an object with keys being filenames (
+without trailing `.js`) and respective values being return values of `require(filename)`.
+* `.requireDirLazy(directory)`: Lazily requires all files and directories from `directory`, returning an object with keys being
+filenames (without trailing `.js`) and respective values (getters) being return values of `require(filename)`.
+* `.<span class="apidocCodeKeywordSpan">format</span>([string] text, [array] formats, [array] replacements)`: Replace `formats`
+in `text` with `replacements`. This will fall back to the original `util.format` command if it is called improperly.
+
+## Packaged Dependencies
+In addition to the methods that are built-in, utile includes a number of commonly used dependencies to reduce the number of includes
+ in your package.json. These modules _are not eagerly loaded to be respectful of startup time,_ but instead are lazy-loaded getters
+ on the `utile` object
+
+* `.async`: [Async utilities for node and the browser][0]
+* `.inflect`: [Customizable inflections for node.js][6]
+* `.mkdirp`: [Recursively mkdir, like mkdir -p, but in node.js][1]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.inherits" id="apidoc.element.utile.inherits">
+        function <span class="apidocSignatureSpan">utile.</span>inherits
+        <span class="apidocSignatureSpan">(ctor, superCtor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inherits = function (ctor, superCtor) {
+
+  if (ctor === undefined || ctor === null)
+    throw new TypeError(&#x27;The constructor to &#x22;inherits&#x22; must not be &#x27; +
+                        &#x27;null or undefined&#x27;);
+
+  if (superCtor === undefined || superCtor === null)
+    throw new TypeError(&#x27;The super constructor to &#x22;inherits&#x22; must not &#x27; +
+                        &#x27;be null or undefined&#x27;);
+
+  if (superCtor.prototype === undefined)
+    throw new TypeError(&#x27;The super constructor to &#x22;inherits&#x22; must &#x27; +
+                        &#x27;have a prototype&#x27;);
+
+  ctor.super_ = superCtor;
+  Object.setPrototypeOf(ctor.prototype, superCtor.prototype);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.inspect" id="apidoc.element.utile.inspect">
+        function <span class="apidocSignatureSpan">utile.</span>inspect
+        <span class="apidocSignatureSpan">(obj, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inspect(obj, opts) {
+  // default options
+  var ctx = {
+    seen: [],
+    stylize: stylizeNoColor
+  };
+  // legacy...
+  if (arguments[2] !== undefined) ctx.depth = arguments[2];
+  if (arguments[3] !== undefined) ctx.colors = arguments[3];
+  if (typeof opts === &#x27;boolean&#x27;) {
+    // legacy...
+    ctx.showHidden = opts;
+  }
+  // Set default and user-specified options
+  ctx = Object.assign({}, inspect.defaultOptions, ctx, opts);
+  if (ctx.colors) ctx.stylize = stylizeWithColor;
+  if (ctx.maxArrayLength === null) ctx.maxArrayLength = Infinity;
+  return formatValue(ctx, obj, ctx.depth);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isArray" id="apidoc.element.utile.isArray">
+        function <span class="apidocSignatureSpan">utile.</span>isArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isArray() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isBoolean" id="apidoc.element.utile.isBoolean">
+        function <span class="apidocSignatureSpan">utile.</span>isBoolean
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isBoolean(arg) {
+  return typeof arg === &#x27;boolean&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isBuffer" id="apidoc.element.utile.isBuffer">
+        function <span class="apidocSignatureSpan">utile.</span>isBuffer
+        <span class="apidocSignatureSpan">(b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isBuffer(b) {
+  return b instanceof Buffer;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isDate" id="apidoc.element.utile.isDate">
+        function <span class="apidocSignatureSpan">utile.</span>isDate
+        <span class="apidocSignatureSpan">(d)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isDate(d) {
+  return binding.isDate(d);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isError" id="apidoc.element.utile.isError">
+        function <span class="apidocSignatureSpan">utile.</span>isError
+        <span class="apidocSignatureSpan">(e)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isError(e) {
+  return exports.objectToString(e) === &#x27;[object Error]&#x27; || e instanceof Error;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isFunction" id="apidoc.element.utile.isFunction">
+        function <span class="apidocSignatureSpan">utile.</span>isFunction
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isFunction(arg) {
+  return typeof arg === &#x27;function&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isNull" id="apidoc.element.utile.isNull">
+        function <span class="apidocSignatureSpan">utile.</span>isNull
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isNull(arg) {
+  return arg === null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isNullOrUndefined" id="apidoc.element.utile.isNullOrUndefined">
+        function <span class="apidocSignatureSpan">utile.</span>isNullOrUndefined
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isNullOrUndefined(arg) {
+  return arg === null || arg === undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isNumber" id="apidoc.element.utile.isNumber">
+        function <span class="apidocSignatureSpan">utile.</span>isNumber
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isNumber(arg) {
+  return typeof arg === &#x27;number&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isObject" id="apidoc.element.utile.isObject">
+        function <span class="apidocSignatureSpan">utile.</span>isObject
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isObject(arg) {
+  return arg !== null &#x26;&#x26; typeof arg === &#x27;object&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isPrimitive" id="apidoc.element.utile.isPrimitive">
+        function <span class="apidocSignatureSpan">utile.</span>isPrimitive
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isPrimitive(arg) {
+  return arg === null ||
+         typeof arg !== &#x27;object&#x27; &#x26;&#x26; typeof arg !== &#x27;function&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isRegExp" id="apidoc.element.utile.isRegExp">
+        function <span class="apidocSignatureSpan">utile.</span>isRegExp
+        <span class="apidocSignatureSpan">(re)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isRegExp(re) {
+  return binding.isRegExp(re);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isString" id="apidoc.element.utile.isString">
+        function <span class="apidocSignatureSpan">utile.</span>isString
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isString(arg) {
+  return typeof arg === &#x27;string&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isSymbol" id="apidoc.element.utile.isSymbol">
+        function <span class="apidocSignatureSpan">utile.</span>isSymbol
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isSymbol(arg) {
+  return typeof arg === &#x27;symbol&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.isUndefined" id="apidoc.element.utile.isUndefined">
+        function <span class="apidocSignatureSpan">utile.</span>isUndefined
+        <span class="apidocSignatureSpan">(arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isUndefined(arg) {
+  return arg === undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.log" id="apidoc.element.utile.log">
+        function <span class="apidocSignatureSpan">utile.</span>log
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log = function () {
+  console.log(&#x27;%s - %s&#x27;, timestamp(), exports.format.apply(exports, arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.mixin" id="apidoc.element.utile.mixin">
+        function <span class="apidocSignatureSpan">utile.</span>mixin
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mixin = function (target) {
+  utile.rargs(arguments, 1).forEach(function (o) {
+    Object.getOwnPropertyNames(o).forEach(function(attr) {
+      var getter = Object.getOwnPropertyDescriptor(o, attr).get,
+          setter = Object.getOwnPropertyDescriptor(o, attr).set;
+
+      if (!getter &#x26;&#x26; !setter) {
+        target[attr] = o[attr];
+      }
+      else {
+        Object.defineProperty(target, attr, {
+          get: getter,
+          set: setter
+        });
+      }
+    });
+  });
+
+  return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+As you can see all of the original methods from `util` are there, but there are several new methods specific to `utile`. A note
+about implementation: _no node.js native modules are modified by utile, it simply copies those methods._
+
+## Methods
+The `utile` modules exposes some simple utility methods:
+
+* `.each(obj, iterator)`: Iterate over the keys of an object.
+* `.<span class="apidocCodeKeywordSpan">mixin</span>(target [source0, source1, ...])`: Copies enumerable properties from `source0
+ ... sourceN` onto `target` and returns the resulting object.
+* `.clone(obj)`: Shallow clones the specified object.
+* `.capitalize(str)`: Capitalizes the specified `str`.
+* `.randomString(length)`: randomString returns a pseudo-random ASCII string (subset) the return value is a string of length ⌈bits
+/6⌉ of characters from the base64 alphabet.
+* `.filter(obj, test)`: return an object with the properties that `test` returns true on.
+* `.args(arguments)`: Converts function arguments into actual array with special `callback`, `cb`, `array`, and `last` properties
+. Also supports *optional* argument contracts. See [the example](https://github.com/flatiron/utile/blob/master/examples/utile-args
+.js) for more details.
+* `.requireDir(directory)`: Requires all files and directories from `directory`, returning an object with keys being filenames (
+without trailing `.js`) and respective values being return values of `require(filename)`.
+* `.requireDirLazy(directory)`: Lazily requires all files and directories from `directory`, returning an object with keys being
+filenames (without trailing `.js`) and respective values (getters) being return values of `require(filename)`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.pad" id="apidoc.element.utile.pad">
+        function <span class="apidocSignatureSpan">utile.</span>pad
+        <span class="apidocSignatureSpan">(str, len, chr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pad(str, len, chr) {
+  var s;
+  if (!chr) {
+    chr = &#x27; &#x27;;
+  }
+  str = str || &#x27;&#x27;;
+  s = str;
+  if (str.length &#x3c; len) {
+    for (var i = 0; i &#x3c; (len - str.length); i++) {
+      s += chr;
+    }
+  }
+  return s;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.path" id="apidoc.element.utile.path">
+        function <span class="apidocSignatureSpan">utile.</span>path
+        <span class="apidocSignatureSpan">(obj, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">path = function (obj, path) {
+  var key, i;
+
+  for (i in path) {
+    if (typeof obj === &#x27;undefined&#x27;) {
+      return undefined;
+    }
+
+    key = path[i];
+    obj = obj[key];
+  }
+
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.print" id="apidoc.element.utile.print">
+        function <span class="apidocSignatureSpan">utile.</span>print
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deprecated() {
+  warned = exports.printDeprecationMessage(msg, warned, deprecated);
+  if (new.target) {
+    return Reflect.construct(fn, arguments, new.target);
+  }
+  return fn.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.puts" id="apidoc.element.utile.puts">
+        function <span class="apidocSignatureSpan">utile.</span>puts
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deprecated() {
+  warned = exports.printDeprecationMessage(msg, warned, deprecated);
+  if (new.target) {
+    return Reflect.construct(fn, arguments, new.target);
+  }
+  return fn.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.randomString" id="apidoc.element.utile.randomString">
+        function <span class="apidocSignatureSpan">utile.</span>randomString
+        <span class="apidocSignatureSpan">(length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randomString = function (length) {
+  var chars, rand, i, ret, mod, bits;
+
+  chars = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-&#x27;;
+  ret = &#x27;&#x27;;
+  // standard 4
+  mod = 4;
+  // default is 16
+  bits = length * mod || 64;
+
+  // in v8, Math.random() yields 32 pseudo-random bits (in spidermonkey it gives 53)
+  while (bits &#x3e; 0) {
+    // 32-bit integer
+    rand = Math.floor(Math.random() * 0x100000000);
+    //we use the top bits
+    for (i = 26; i &#x3e; 0 &#x26;&#x26; bits &#x3e; 0; i -= mod, bits -= mod) {
+      ret += chars[0x3F &#x26; rand &#x3e;&#x3e;&#x3e; i];
+    }
+  }
+
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Methods
+The `utile` modules exposes some simple utility methods:
+
+* `.each(obj, iterator)`: Iterate over the keys of an object.
+* `.mixin(target [source0, source1, ...])`: Copies enumerable properties from `source0 ... sourceN` onto `target` and returns the
+ resulting object.
+* `.clone(obj)`: Shallow clones the specified object.
+* `.capitalize(str)`: Capitalizes the specified `str`.
+* `.<span class="apidocCodeKeywordSpan">randomString</span>(length)`: randomString returns a pseudo-random ASCII string (subset)
+the return value is a string of length ⌈bits/6⌉ of characters from the base64 alphabet.
+* `.filter(obj, test)`: return an object with the properties that `test` returns true on.
+* `.args(arguments)`: Converts function arguments into actual array with special `callback`, `cb`, `array`, and `last` properties
+. Also supports *optional* argument contracts. See [the example](https://github.com/flatiron/utile/blob/master/examples/utile-args
+.js) for more details.
+* `.requireDir(directory)`: Requires all files and directories from `directory`, returning an object with keys being filenames (
+without trailing `.js`) and respective values being return values of `require(filename)`.
+* `.requireDirLazy(directory)`: Lazily requires all files and directories from `directory`, returning an object with keys being
+filenames (without trailing `.js`) and respective values (getters) being return values of `require(filename)`.
+* `.format([string] text, [array] formats, [array] replacements)`: Replace `formats` in `text` with `replacements`. This will fall
+ back to the original `util.format` command if it is called improperly.
+
+## Packaged Dependencies
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.rargs" id="apidoc.element.utile.rargs">
+        function <span class="apidocSignatureSpan">utile.</span>rargs
+        <span class="apidocSignatureSpan">(_args, slice)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rargs = function (_args, slice) {
+  if (!slice) {
+    slice = 0;
+  }
+
+  var len = (_args || []).length,
+      args = new Array(len - slice),
+      i;
+
+  //
+  // Convert the raw `_args` to a proper Array.
+  //
+  for (i = slice; i &#x3c; len; i++) {
+    args[i - slice] = _args[i];
+  }
+
+  return args;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// #### _args {Arguments} Original function arguments
+//
+// Top-level method will accept a javascript &#x22;arguments&#x22; object (the actual keyword
+// &#x22;arguments&#x22; inside any scope), and attempt to return back an intelligent object
+// representing the functions arguments
+//
+module.exports = function (_args) {
+var args = utile.<span class="apidocCodeKeywordSpan">rargs</span>(_args),
+    _cb;
+
+//
+// Find and define the first argument
+//
+Object.defineProperty(args, &#x27;first&#x27;, { value: args[0] });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.requireDir" id="apidoc.element.utile.requireDir">
+        function <span class="apidocSignatureSpan">utile.</span>requireDir
+        <span class="apidocSignatureSpan">(directory)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">requireDir = function (directory) {
+  var result = {},
+      files = fs.readdirSync(directory);
+
+  files.forEach(function (file) {
+    if (file.substr(-3) === &#x27;.js&#x27;) {
+      file = file.substr(0, file.length - 3);
+    }
+    result[file] = require(path.resolve(directory, file));
+  });
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `.each(obj, iterator)`: Iterate over the keys of an object.
+* `.mixin(target [source0, source1, ...])`: Copies enumerable properties from `source0 ... sourceN` onto `target` and returns the
+ resulting object.
+* `.clone(obj)`: Shallow clones the specified object.
+* `.capitalize(str)`: Capitalizes the specified `str`.
+* `.randomString(length)`: randomString returns a pseudo-random ASCII string (subset) the return value is a string of length ⌈bits
+/6⌉ of characters from the base64 alphabet.
+* `.filter(obj, test)`: return an object with the properties that `test` returns true on.
+* `.args(arguments)`: Converts function arguments into actual array with special `callback`, `cb`, `array`, and `last` properties
+. Also supports *optional* argument contracts. See [the example](https://github.com/flatiron/utile/blob/master/examples/utile-args
+.js) for more details.
+* `.<span class="apidocCodeKeywordSpan">requireDir</span>(directory)`: Requires all files and directories from `directory`, returning
+ an object with keys being filenames (without trailing `.js`) and respective values being return values of `require(filename)`.
+* `.requireDirLazy(directory)`: Lazily requires all files and directories from `directory`, returning an object with keys being
+filenames (without trailing `.js`) and respective values (getters) being return values of `require(filename)`.
+* `.format([string] text, [array] formats, [array] replacements)`: Replace `formats` in `text` with `replacements`. This will fall
+ back to the original `util.format` command if it is called improperly.
+
+## Packaged Dependencies
+In addition to the methods that are built-in, utile includes a number of commonly used dependencies to reduce the number of includes
+ in your package.json. These modules _are not eagerly loaded to be respectful of startup time,_ but instead are lazy-loaded getters
+ on the `utile` object
+
+* `.async`: [Async utilities for node and the browser][0]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.requireDirLazy" id="apidoc.element.utile.requireDirLazy">
+        function <span class="apidocSignatureSpan">utile.</span>requireDirLazy
+        <span class="apidocSignatureSpan">(directory)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">requireDirLazy = function (directory) {
+  var result = {},
+      files = fs.readdirSync(directory);
+
+  files.forEach(function (file) {
+    if (file.substr(-3) === &#x27;.js&#x27;) {
+      file = file.substr(0, file.length - 3);
+    }
+    Object.defineProperty(result, file, {
+      get: function() {
+        return result[file] = require(path.resolve(directory, file));
+      }
+    });
+  });
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `.mixin(target [source0, source1, ...])`: Copies enumerable properties from `source0 ... sourceN` onto `target` and returns the
+ resulting object.
+* `.clone(obj)`: Shallow clones the specified object.
+* `.capitalize(str)`: Capitalizes the specified `str`.
+* `.randomString(length)`: randomString returns a pseudo-random ASCII string (subset) the return value is a string of length ⌈bits
+/6⌉ of characters from the base64 alphabet.
+* `.filter(obj, test)`: return an object with the properties that `test` returns true on.
+* `.args(arguments)`: Converts function arguments into actual array with special `callback`, `cb`, `array`, and `last` properties
+. Also supports *optional* argument contracts. See [the example](https://github.com/flatiron/utile/blob/master/examples/utile-args
+.js) for more details.
+* `.requireDir(directory)`: Requires all files and directories from `directory`, returning an object with keys being filenames (
+without trailing `.js`) and respective values being return values of `require(filename)`.
+* `.<span class="apidocCodeKeywordSpan">requireDirLazy</span>(directory)`: Lazily requires all files and directories from `directory
+`, returning an object with keys being filenames (without trailing `.js`) and respective values (getters) being return values of
+ `require(filename)`.
+* `.format([string] text, [array] formats, [array] replacements)`: Replace `formats` in `text` with `replacements`. This will fall
+ back to the original `util.format` command if it is called improperly.
+
+## Packaged Dependencies
+In addition to the methods that are built-in, utile includes a number of commonly used dependencies to reduce the number of includes
+ in your package.json. These modules _are not eagerly loaded to be respectful of startup time,_ but instead are lazy-loaded getters
+ on the `utile` object
+
+* `.async`: [Async utilities for node and the browser][0]
+* `.inflect`: [Customizable inflections for node.js][6]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.underscoreToCamel" id="apidoc.element.utile.underscoreToCamel">
+        function <span class="apidocSignatureSpan">utile.</span>underscoreToCamel
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">underscoreToCamel = function (obj) {
+  if (typeof obj !== &#x27;object&#x27; || obj === null) {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    obj.forEach(utile.underscoreToCamel);
+    return obj;
+  }
+
+  Object.keys(obj).forEach(function (key) {
+    var k = utile.inflect.camelize(key, false);
+    if (k !== key) {
+      obj[k] = obj[key];
+      delete obj[key];
+      key = k;
+    }
+    utile.underscoreToCamel(obj[key]);
+  });
+
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.utile.base64" id="apidoc.module.utile.base64">module utile.base64</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.utile.base64.decode" id="apidoc.element.utile.base64.decode">
+        function <span class="apidocSignatureSpan">utile.base64.</span>decode
+        <span class="apidocSignatureSpan">(encoded)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decode = function (encoded) {
+  var decoded;
+
+  try {
+    decoded = new Buffer(encoded || &#x27;&#x27;, &#x27;base64&#x27;).toString(&#x27;utf8&#x27;);
+  }
+  catch (ex) {
+    return null;
+  }
+
+  return decoded;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.base64.encode" id="apidoc.element.utile.base64.encode">
+        function <span class="apidocSignatureSpan">utile.base64.</span>encode
+        <span class="apidocSignatureSpan">(unencoded)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">encode = function (unencoded) {
+  var encoded;
+
+  try {
+    encoded = new Buffer(unencoded || &#x27;&#x27;).toString(&#x27;base64&#x27;);
+  }
+  catch (ex) {
+    return null;
+  }
+
+  return encoded;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.utile.file" id="apidoc.module.utile.file">module utile.file</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.utile.file.readJSON" id="apidoc.element.utile.file.readJSON">
+        function <span class="apidocSignatureSpan">utile.file.</span>readJSON
+        <span class="apidocSignatureSpan">(file, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readJSON = function (file, callback) {
+  if (typeof callback !== &#x27;function&#x27;) {
+    throw new Error(&#x27;utile.file.readJson needs a callback&#x27;);
+  }
+
+  fs.readFile(file, &#x27;utf-8&#x27;, function (err, data) {
+    if (err) {
+      return callback(err);
+    }
+
+    try {
+      var json = JSON.parse(data);
+      callback(null, json);
+    }
+    catch (err) {
+      return callback(err);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.file.readJSONSync" id="apidoc.element.utile.file.readJSONSync">
+        function <span class="apidocSignatureSpan">utile.file.</span>readJSONSync
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readJSONSync = function (file) {
+  return JSON.parse(fs.readFileSync(file, &#x27;utf-8&#x27;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.file.readJson" id="apidoc.element.utile.file.readJson">
+        function <span class="apidocSignatureSpan">utile.file.</span>readJson
+        <span class="apidocSignatureSpan">(file, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readJson = function (file, callback) {
+  if (typeof callback !== &#x27;function&#x27;) {
+    throw new Error(&#x27;utile.file.readJson needs a callback&#x27;);
+  }
+
+  fs.readFile(file, &#x27;utf-8&#x27;, function (err, data) {
+    if (err) {
+      return callback(err);
+    }
+
+    try {
+      var json = JSON.parse(data);
+      callback(null, json);
+    }
+    catch (err) {
+      return callback(err);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utile.file.readJsonSync" id="apidoc.element.utile.file.readJsonSync">
+        function <span class="apidocSignatureSpan">utile.file.</span>readJsonSync
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readJsonSync = function (file) {
+  return JSON.parse(fs.readFileSync(file, &#x27;utf-8&#x27;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
