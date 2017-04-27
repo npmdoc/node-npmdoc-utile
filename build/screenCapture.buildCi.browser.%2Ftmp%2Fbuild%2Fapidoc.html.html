@@ -637,7 +637,23 @@
 
   return obj;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Object.keys(obj).forEach(function (key) {
+    var k = utile.inflect.underscore(key);
+    if (k !== key) {
+      obj[k] = obj[key];
+      delete obj[key];
+      key = k;
+    }
+    utile.<span class="apidocCodeKeywordSpan">camelToUnderscore</span>(obj[key]);
+  });
+
+  return obj;
+};
+
+//
+// ### function underscoreToCamel (obj)
+...</pre></li>
     </ul>
 
 
@@ -755,7 +771,23 @@ filenames (without trailing `.js`) and respective values (getters) being return 
     obj = obj[key];
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  assert.isObject(clone.bar);
+  assert.notStrictEqual(obj1, clone);
+},
+"the createPath() method": function () {
+  var x = {},
+      r = Math.random();
+
+  utile.<span class="apidocCodeKeywordSpan">createPath</span>(x, ['a','b','c'], r)
+  assert.equal(x.a.b.c, r)
+},
+"the capitalize() method": function () {
+  assert.isFunction(utile.capitalize);
+  assert.equal(utile.capitalize('bullet'), 'Bullet');
+  assert.equal(utile.capitalize('bullet_train'), 'BulletTrain');
+},
+...</pre></li>
     </ul>
 
 
@@ -920,7 +952,24 @@ without trailing `.js`) and respective values being return values of `require(fi
     <li>description and source-code<pre class="apidocCodePre">escapeRegExp = function (str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&amp;");
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  assert.isFunction(utile.capitalize);
+  assert.equal(utile.capitalize('bullet'), 'Bullet');
+  assert.equal(utile.capitalize('bullet_train'), 'BulletTrain');
+},
+"the escapeRegExp() method": function () {
+  var ans = "\\/path\\/to\\/resource\\.html\\?search=query";
+  assert.isFunction(utile.escapeRegExp);
+  assert.equal(utile.<span class="apidocCodeKeywordSpan">escapeRegExp</span>('/path/to/resource.html?search=query'), ans
+);
+},
+"the underscoreToCamel() method": function () {
+  var obj = utile.underscoreToCamel({
+    key_with_underscore: {
+      andNested: 'values',
+      several: [1, 2, 3],
+      nested_underscores: true
+...</pre></li>
     </ul>
 
 
@@ -1124,7 +1173,23 @@ In addition to the methods that are built-in, utile includes a number of commonl
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isArray() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// #### @obj {Object} Object to iterate over
+// #### @pred {function} Predicate applied to each property. `function (value, key, object)`
+// Returns an object with properties from `obj` which satisfy
+// the predicate `pred`
+//
+utile.filter = function (obj, pred) {
+var copy;
+if (Array.<span class="apidocCodeKeywordSpan">isArray</span>(obj)) {
+  copy = [];
+  utile.each(obj, function (val, key) {
+    if (pred(val, key, obj)) {
+      copy.push(val);
+    }
+  });
+}
+...</pre></li>
     </ul>
 
 
@@ -1199,7 +1264,23 @@ In addition to the methods that are built-in, utile includes a number of commonl
     <li>description and source-code<pre class="apidocCodePre">function isFunction(arg) {
   return typeof arg === 'function';
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  utile = require('../');
+
+vows.describe('utile/args').addBatch({
+'When using utile': {
+  'the `args` function': {
+    topic: utile,
+    'should be a function': function (_utile) {
+      assert.<span class="apidocCodeKeywordSpan">isFunction</span>(_utile.args);
+    },
+  }
+},
+'utile.rargs()': {
+  'with no arguments': {
+    topic: utile.rargs(),
+    'should return an empty object': function (result) {
+...</pre></li>
     </ul>
 
 
@@ -1259,7 +1340,23 @@ In addition to the methods that are built-in, utile includes a number of commonl
     <li>description and source-code<pre class="apidocCodePre">function isObject(arg) {
   return arg !== null &amp;&amp; typeof arg === 'object';
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    'the `requireDir()` function': {
+      topic: utile.requireDir(requireFixtures),
+      'should contain all wanted modules': macros.assertDirectoryRequired
+    },
+    'the `requireDirLazy()` function': {
+      topic: utile.requireDirLazy(requireFixtures),
+      'all properties should be getters': function (obj) {
+        assert.<span class="apidocCodeKeywordSpan">isObject</span>(obj);
+        assert.isTrue(!!Object.getOwnPropertyDescriptor(obj, 'directory').get);
+        assert.isTrue(!!Object.getOwnPropertyDescriptor(obj, 'helloWorld').get);
+      },
+      'should contain all wanted modules': macros.assertDirectoryRequired
+    }
+  }
+}).export(module);
+...</pre></li>
     </ul>
 
 
@@ -1305,7 +1402,23 @@ In addition to the methods that are built-in, utile includes a number of commonl
     <li>description and source-code<pre class="apidocCodePre">function isString(arg) {
   return typeof arg === 'string';
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+vows.describe('utile/randomString').addBatch({
+"When using utile": {
+  "the randomString() function": {
+    topic: function () {
+      return utile.randomString();
+    },
+    "should return 16 characters that are actually random by default": function (random) {
+      assert.<span class="apidocCodeKeywordSpan">isString</span>(random);
+      assert.lengthOf(random, 16);
+      assert.notEqual(random, utile.randomString());
+    },
+    "when you can asked for different length strings": {
+      topic: function () {
+        return [utile.randomString(4), utile.randomString(128)];
+      },
+...</pre></li>
     </ul>
 
 
@@ -1335,7 +1448,23 @@ In addition to the methods that are built-in, utile includes a number of commonl
     <li>description and source-code<pre class="apidocCodePre">function isUndefined(arg) {
   return arg === undefined;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+  }
+},
+'utile.args()': {
+  'with no arguments': {
+    topic: utile.args(),
+    'should return an empty Array': function (result) {
+      assert.<span class="apidocCodeKeywordSpan">isUndefined</span>(result.callback);
+      assert.isArray(result);
+      assert.lengthOf(result, 0);
+    }
+  },
+  'with simple arguments': {
+    topic: function () {
+      return (function () {
+...</pre></li>
     </ul>
 
 
@@ -1735,7 +1864,20 @@ In addition to the methods that are built-in, utile includes a number of commonl
 
   return obj;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Object.keys(obj).forEach(function (key) {
+    var k = utile.inflect.camelize(key, false);
+    if (k !== key) {
+      obj[k] = obj[key];
+      delete obj[key];
+      key = k;
+    }
+    utile.<span class="apidocCodeKeywordSpan">underscoreToCamel</span>(obj[key]);
+  });
+
+  return obj;
+};
+...</pre></li>
     </ul>
 
 
@@ -1874,7 +2016,23 @@ In addition to the methods that are built-in, utile includes a number of commonl
     }
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  macros = require('./helpers/macros'),
+  utile = require('../');
+
+var fixture = path.join(__dirname, 'fixtures', 'read-json-file', 'config.json');
+
+vows.describe('utile/file').addBatch({
+'When using utile': {
+  'the `.file.<span class="apidocCodeKeywordSpan">readJson</span>()` function': {
+    topic: function () {
+      utile.file.readJson(fixture, this.callback);
+    },
+    'should return correct JSON structure': macros.assertReadCorrectJson
+  },
+  'the `.file.readJsonSync()` function': {
+    topic: utile.file.readJsonSync(fixture),
+...</pre></li>
     </ul>
 
 
@@ -1889,7 +2047,21 @@ In addition to the methods that are built-in, utile includes a number of commonl
     <li>description and source-code<pre class="apidocCodePre">readJsonSync = function (file) {
   return JSON.parse(fs.readFileSync(file, 'utf-8'));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  'When using utile': {
+    'the `.file.readJson()` function': {
+      topic: function () {
+        utile.file.readJson(fixture, this.callback);
+      },
+      'should return correct JSON structure': macros.assertReadCorrectJson
+    },
+    'the `.file.<span class="apidocCodeKeywordSpan">readJsonSync</span>()` function': {
+      topic: utile.file.readJsonSync(fixture),
+      'should return correct JSON structure': macros.assertReadCorrectJson
+    }
+  }
+}).export(module);
+...</pre></li>
     </ul>
 
 
