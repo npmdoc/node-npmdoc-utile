@@ -1,6 +1,6 @@
 # npmdoc-utile
 
-#### api documentation for  [utile (v0.3.0)](https://github.com/flatiron/utile)  [![npm package](https://img.shields.io/npm/v/npmdoc-utile.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-utile) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-utile.svg)](https://travis-ci.org/npmdoc/node-npmdoc-utile)
+#### basic api documentation for  [utile (v0.3.0)](https://github.com/flatiron/utile)  [![npm package](https://img.shields.io/npm/v/npmdoc-utile.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-utile) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-utile.svg)](https://travis-ci.org/npmdoc/node-npmdoc-utile)
 
 #### A drop-in replacement for `util` with some additional advantageous functions
 
@@ -67,7 +67,8 @@
     "scripts": {
         "test": "vows --spec"
     },
-    "version": "0.3.0"
+    "version": "0.3.0",
+    "bin": {}
 }
 ```
 
